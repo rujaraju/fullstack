@@ -1,0 +1,25 @@
+title Muistiinpanon tallentaminen SPA-versio
+
+
+note over selain:
+Selain käsittelee muistiinpanon tallentamisen
+js-koodin avulla. Se estää normaalin lomakkeen
+käsittelyä, ja tallentaa muistiinpanon 
+taulukkoon, ja renderöi uuden version sivusta,
+mistä näkyy uusi muistiinpano.
+
+Tämän jälkeen, se lähettää muistiinpanon
+JSON-muodossa palvelimelle tallentavaksi sielläkin.
+end note
+
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over palvelin:
+Palvelin vastaanottaa POST-pyynnön, ja tallentaa datan.
+end note
+
+palvelin-->selain: Palvelin vastaa 201 created, eli asia hoidettu.
+
+note over selain:
+Mikään muu ei tapahdu.
+end note

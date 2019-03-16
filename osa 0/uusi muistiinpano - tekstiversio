@@ -1,0 +1,36 @@
+title Uuden muistiinpanon tallentaminen
+
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+
+note over palvelin:
+palvelin vastaanottaa tiedon 
+ja tallentaa sen taulukkoon
+end note
+
+palvelin-->selain: Vastaus POST-pyyntöön 302-koodilla, eli uudelleenohjaus
+
+note over selain:
+Selain vastaanottaa kehotuksen hakemaan
+sivun /notes uudestaan, ja lähettää GET-pyynnön.
+
+Tämän jälkeen alkaa prosessi joka näyttää erittäin tutulta:
+end note
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+palvelin-->selain: sivun HTML
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin-->selain: sivun tyylit: main.css
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+palvelin-->selain: sivun javascript-koodi: main.js
+
+note over selain:
+Tämä on nyt ihan tekstin esimerkistä lainattua,
+eli sitten js-koodi pyytää hakemaan dataa, ja:
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin-->selain: [{ content: "HTML on helppoa", date: "2019-01-01" }, ...]
+
+note over selain:
+Ja sitten selain uudestaan kokoaa listan muistiinpanoista.
+Nyt mukana uusi muistiinpano.
+end note
