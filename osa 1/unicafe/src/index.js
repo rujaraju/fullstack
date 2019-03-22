@@ -3,25 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
-const Nappi = ({onclick, label}) => {
+const Button = ({onclick, label}) => {
     return (
         <button onClick={onclick}>{label}</button>
         )
 }
 
-const Tilasto = ({label, value}) => {
+const Statistic = ({label, value}) => {
         return(
     <p>{label}: {value}</p>
   )
 }
 
 const Statistics = ({values}) => {
-    if (values[3].arvo == 0) {
+    if (values[3].arvo === 0) {
         return (
             <p>Ei yhtään palautetta annettu!!</p>
             )
     }
-    return values.map(elem => <Tilasto key ={elem.label} label= {elem.label} value= {elem.arvo}  />);
+    return values.map(elem => <Statistic key ={elem.label} label= {elem.label} value= {elem.arvo}  />);
 }
 
 const App = () => {
@@ -63,9 +63,9 @@ const App = () => {
   return (
     <div>
     <h1>Mitäs mieltä olit meistä tänään?</h1>
-    <Nappi label="Hyvä" onclick={() => handleClick("hyvä")} />
-    <Nappi label="Neutraali" onclick={() => handleClick("")} />
-    <Nappi label="Huono" onclick={() => handleClick("huono")} />
+    <Button label="Hyvä" onclick={() => handleClick("hyvä")} />
+    <Button label="Neutraali" onclick={() => handleClick("")} />
+    <Button label="Huono" onclick={() => handleClick("huono")} />
     <h3>Tulokset:</h3>
     <Statistics values={arvot} />
     </div>
