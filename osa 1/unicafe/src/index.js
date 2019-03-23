@@ -33,8 +33,8 @@ const App = () => {
     const [positiivisia, setPositiivisia] = useState(0)
     var arvot = [
         {label:"Hyvä", arvo: hyva}, 
-        {label:"Huono", arvo: huono}, 
         {label:"Neutraali", arvo: neutral}, 
+        {label:"Huono", arvo: huono},
         {label: "Yhteensä", arvo: yhteensa},
         {label:"Keskiarvo", arvo: keskiarvo},
         {label:"Positiivisia", arvo: positiivisia}
